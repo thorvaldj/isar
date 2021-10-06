@@ -1,15 +1,16 @@
-import logging
-from http import HTTPStatus
+# import logging
+# from http import HTTPStatus
 
 from flask_restx import Namespace, Resource
 from injector import inject
+
 from isar.config import config
 from isar.mission_planner.local_planner import LocalPlanner
 
-api = Namespace(
-    config.get("api_namespaces", "eqrobot_missions_namespace"),
-    description="CRUD operations for missions",
-)
+# api = Namespace(
+#     config.get("api_namespaces", "eqrobot_missions_namespace"),
+#     description="CRUD operations for missions",
+# )
 
 
 @api.route(
