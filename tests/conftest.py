@@ -7,6 +7,7 @@ from isar.mission_planner.echo_planner import EchoPlanner
 from isar.mission_planner.local_planner import LocalPlanner
 from isar.models.communication.queues.queues import Queues
 from isar.modules import (
+    APIModule,
     CoordinateModule,
     LocalPlannerModule,
     QueuesModule,
@@ -34,6 +35,7 @@ from tests.test_utilities.mock_interface.mock_robot_interface import MockRobot
 def injector():
     return Injector(
         [
+            APIModule,
             CoordinateModule,
             QueuesModule,
             ReaderModule,

@@ -3,6 +3,7 @@ from logging import Logger
 from threading import Thread
 from typing import List
 
+import uvicorn
 from injector import Injector, Module
 
 from isar import create_app
@@ -28,4 +29,4 @@ if __name__ == "__main__":
     module_config_log = "\n".join(module_config_keys)
     logger.info(f"Loaded the following module configurations:\n{module_config_log}")
 
-    app.run(host, port, use_reloader=False)
+    uvicorn.run(app, port=3000, host="localhost")
