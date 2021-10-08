@@ -1,11 +1,10 @@
-import logging
 from pathlib import Path
 
 import pytest
 from alitra.frame_dataclasses import Point, PointList
 
+from isar.config.log import logging
 from isar.models.map.map_config import MapConfig
-from isar.services.readers.base_reader import BaseReaderError
 
 logger = logging.getLogger("state_machine")
 

@@ -1,4 +1,3 @@
-import logging
 import traceback
 
 from azure.core.exceptions import (
@@ -10,6 +9,7 @@ from azure.identity import ClientSecretCredential, DefaultAzureCredential
 from azure.keyvault.secrets import KeyVaultSecret, SecretClient
 
 from isar.config.keyvault.keyvault_error import KeyvaultError
+from isar.config.log import logging
 
 
 class Keyvault:

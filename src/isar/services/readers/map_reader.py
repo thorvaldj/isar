@@ -1,10 +1,10 @@
-import logging
 from pathlib import Path
 from typing import Optional
 
 from isar.config import config
+from isar.config.log import logging
 from isar.models.map.map_config import MapConfig
-from isar.services.readers.base_reader import BaseReader, BaseReaderError
+from isar.services.readers.base_reader import BaseReader
 from robot_interface.models.geometry.frame import Frame
 
 logger = logging.getLogger("state_machine")

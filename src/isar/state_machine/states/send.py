@@ -1,8 +1,8 @@
-import logging
 from typing import TYPE_CHECKING
 
 from transitions import State
 
+from isar.config.log import logging
 from isar.state_machine.states_enum import States
 from robot_interface.models.mission import Step, TakeImage
 

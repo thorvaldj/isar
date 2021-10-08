@@ -1,7 +1,8 @@
-import logging
 from typing import TYPE_CHECKING
 
 from transitions import State
+
+from isar.config.log import logging
 
 if TYPE_CHECKING:
     from isar.state_machine.state_machine import StateMachine

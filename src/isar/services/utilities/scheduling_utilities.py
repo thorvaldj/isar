@@ -1,4 +1,3 @@
-import logging
 from copy import deepcopy
 from http import HTTPStatus
 from typing import Optional, Tuple
@@ -6,6 +5,7 @@ from typing import Optional, Tuple
 from injector import inject
 
 from isar.config import config
+from isar.config.log import logging
 from isar.models.communication.messages import StartMessage, StartMissionMessages
 from isar.models.communication.queues.queue_timeout_error import QueueTimeoutError
 from isar.models.communication.queues.queues import Queues

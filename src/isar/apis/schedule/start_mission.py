@@ -1,12 +1,15 @@
-import logging
+from dataclasses import asdict
 from http import HTTPStatus
 from typing import Optional
 
 from fastapi.param_functions import Query
 from injector import inject
 
-from isar.config import config
-from isar.mission_planner.mission_planner_interface import MissionPlannerInterface
+from isar.config.log import logging
+from isar.mission_planner.mission_planner_interface import (
+    MissionPlannerError,
+    MissionPlannerInterface,
+)
 from isar.models.communication.messages.start_message import StartMissionMessages
 from isar.models.mission import Mission
 from isar.services.utilities.scheduling_utilities import SchedulingUtilities

@@ -22,7 +22,9 @@ setup(
     ],
     include_package_data=True,
     install_requires=[
-        "fastapi" "fastapi_utilis" "uvicorn" "PyJWT",
+        "fastapi",
+        "uvicorn",
+        "PyJWT",
         "PyYAML",
         "Werkzeug < 2.0.0",
         "alitra",
