@@ -1,9 +1,9 @@
+import logging
 from typing import TYPE_CHECKING, List, Sequence, Union
 
 from injector import inject
 from transitions import State
 
-from isar.config.log import logging
 from isar.services.coordinates.transformation import Transformation
 from isar.state_machine.states_enum import States
 from robot_interface.models.geometry.frame import Frame

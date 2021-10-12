@@ -1,9 +1,9 @@
+import logging
 from typing import TYPE_CHECKING, Optional
 
 from injector import inject
 from transitions import State
 
-from isar.config.log import logging
 from isar.storage.storage_service import StorageService
 from robot_interface.models.inspection.inspection import InspectionResult
 

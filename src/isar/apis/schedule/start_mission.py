@@ -1,11 +1,11 @@
+import logging
 from dataclasses import asdict
 from http import HTTPStatus
-from typing import Optional
 
 from fastapi.param_functions import Query
+from fastapi.responses import JSONResponse
 from injector import inject
 
-from isar.config.log import logging
 from isar.mission_planner.mission_planner_interface import (
     MissionPlannerError,
     MissionPlannerInterface,
@@ -21,39 +21,34 @@ class StartMission:
         self,
         mission_planner: MissionPlannerInterface,
         scheduling_utilities: SchedulingUtilities,
-        *args,
-        **kwargs,
     ):
-        super().__init__(*args, **kwargs)
         self.logger = logging.getLogger("api")
         self.mission_planner = mission_planner
         self.scheduling_utilities = scheduling_utilities
 
-    def get(
+    def post(
         self,
-        mission_id: Optional[int] = Query(
-            None,
+        mission_id: int = Query(
+            ...,
             alias="ID",
             title="Mission ID",
             description="ID-number for predefined mission",
         ),
     ):
 
-        if not self.mission_planner.mission_id_valid(mission_id):
-            message = StartMissionMessages.invalid_mission_id(mission_id)
-            self.logger.error(message)
-            return message, HTTPStatus.NOT_FOUND
-
-        mission: Mission = self.mission_planner.get_mission(mission_id)
-        if mission is None:
+        try:
+            mission: Mission = self.mission_planner.get_mission(mission_id)
+        except MissionPlannerError as e:
             message = StartMissionMessages.mission_not_found()
-            return message, HTTPStatus.NOT_FOUND
+            self.logger.error(e)
+            return JSONResponse(
+                content=asdict(message), status_code=HTTPStatus.NOT_FOUND
+            )
 
         ready, response = self.scheduling_utilities.ready_to_start_mission()
-        if not ready:
-            return response
+        if ready:
+            response = self.scheduling_utilities.start_mission(mission=mission)
+            self.logger.info(response)
 
-        response = self.scheduling_utilities.start_mission(mission=mission)
-
-        self.logger.info(response)
-        return response
+        message, status_code = response
+        return JSONResponse(content=asdict(message), status_code=status_code)

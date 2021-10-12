@@ -1,7 +1,7 @@
+import logging
+
 from azure.core.exceptions import ClientAuthenticationError
 from azure.identity import DefaultAzureCredential
-
-from isar.config.log import logging
 
 
 class AzureCredentials:

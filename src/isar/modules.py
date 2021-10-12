@@ -34,19 +34,18 @@ class APIModule(Module):
     def provide_drive_to(self, scheduling_utilities: SchedulingUtilities) -> DriveTo:
         return DriveTo(scheduling_utilities)
 
+    @provider
+    @singleton
+    def provide_start_mission(
+        self,
+        mission_planner: MissionPlannerInterface,
+        scheduling_utilities: SchedulingUtilities,
+    ) -> StartMission:
+        return StartMission(mission_planner, scheduling_utilities)
 
     @provider
     @singleton
-    def provide_start_mission(self,
-        mission_reader: MissionReader,
-        scheduling_utilities: SchedulingUtilities) -> StartMission:
-        return StartMission(mission_reader,scheduling_utilities)
-
-
-    @provider
-    @singleton
-    def provide_stop_mission(self,
-        queues: Queues) -> StopMission:
+    def provide_stop_mission(self, queues: Queues) -> StopMission:
         return StopMission(queues)
 
 
@@ -172,6 +171,7 @@ class CoordinateModule(Module):
 
 
 modules: dict = {
+    "api": {"default": APIModule},
     "coordinate": {"default": CoordinateModule},
     "queues": {"default": QueuesModule},
     "reader": {"default": ReaderModule},

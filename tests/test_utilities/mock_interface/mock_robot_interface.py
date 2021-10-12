@@ -1,7 +1,7 @@
+import logging
 from datetime import datetime
 from typing import Any, List, Optional, Tuple
 
-from isar.config.log import logging
 from robot_interface.models.geometry.frame import Frame
 from robot_interface.models.geometry.joints import Joints
 from robot_interface.models.geometry.orientation import Orientation

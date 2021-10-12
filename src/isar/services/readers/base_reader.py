@@ -1,12 +1,11 @@
 import json
+import logging
 from dataclasses import is_dataclass
 from logging import Logger
 from pathlib import Path
 from typing import Any, Optional
 
 from dacite import Config, from_dict
-
-from isar.config.log import logging
 
 logger: Logger = logging.getLogger("api")
 

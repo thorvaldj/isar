@@ -1,3 +1,4 @@
+import logging
 from pathlib import Path
 
 from azure.core.exceptions import ResourceExistsError, ResourceNotFoundError
@@ -6,7 +7,6 @@ from injector import inject
 
 from isar.config import config
 from isar.config.keyvault.keyvault_service import Keyvault
-from isar.config.log import logging
 from isar.storage.storage_interface import StorageInterface
 
 

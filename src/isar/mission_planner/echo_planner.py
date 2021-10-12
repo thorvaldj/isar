@@ -1,3 +1,4 @@
+import logging
 from typing import List, Union
 
 from azure.identity import DefaultAzureCredential
@@ -5,7 +6,6 @@ from injector import inject
 from requests import Response
 
 from isar.config import config
-from isar.config.log import logging
 from isar.config.predefined_measurement_types.predefined_measurement_types import (
     predefined_measurement_types,
 )

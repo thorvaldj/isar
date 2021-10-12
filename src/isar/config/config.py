@@ -1,11 +1,11 @@
 import importlib.resources as pkg_resources
+import logging
 from configparser import ConfigParser
 from os import getenv
 
 from dotenv import load_dotenv
 
 from isar.config.configuration_error import ConfigurationError
-from isar.config.log import logging
 
 
 class Config(object):

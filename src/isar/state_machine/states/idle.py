@@ -1,9 +1,9 @@
+import logging
 import time
 from typing import TYPE_CHECKING
 
 from transitions import State
 
-from isar.config.log import logging
 from isar.state_machine.states_enum import States
 
 if TYPE_CHECKING:

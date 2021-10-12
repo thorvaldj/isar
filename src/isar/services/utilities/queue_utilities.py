@@ -1,7 +1,7 @@
+import logging
 from queue import Empty, Queue
 from typing import Any
 
-from isar.config.log import logging
 from isar.models.communication.queues.queue_timeout_error import QueueTimeoutError
 
 logger = logging.getLogger("api")

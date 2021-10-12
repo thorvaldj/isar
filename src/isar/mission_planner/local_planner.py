@@ -1,9 +1,9 @@
+import logging
 from dataclasses import asdict
 from pathlib import Path
 from typing import Optional
 
 from isar.config import config
-from isar.config.log import logging
 from isar.mission_planner.mission_planner_interface import (
     MissionPlannerError,
     MissionPlannerInterface,

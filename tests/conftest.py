@@ -1,4 +1,5 @@
 import pytest
+from fastapi.testclient import TestClient
 from injector import Injector
 
 from isar import create_app
@@ -53,13 +54,13 @@ def injector():
 @pytest.fixture()
 def app(injector):
     app = create_app(injector=injector)
-    with app.app_context():
-        yield app
+    return app
 
 
 @pytest.fixture()
 def client(app):
-    return app.test_client()
+    client = TestClient(app)
+    return client
 
 
 @pytest.fixture()

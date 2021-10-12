@@ -2,8 +2,6 @@ from fastapi import FastAPI
 from injector import Injector
 
 from isar.apis.schedule.router import create_scheduler_router
-from isar.config import config
-from isar.services.utilities.json_service import EnhancedJSONEncoder
 
 
 def create_app(injector: Injector):

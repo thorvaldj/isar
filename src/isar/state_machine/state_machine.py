@@ -1,3 +1,4 @@
+import logging
 import queue
 from collections import deque
 from copy import deepcopy
@@ -7,7 +8,6 @@ from injector import Injector, inject
 from transitions import Machine
 
 from isar.config import config
-from isar.config.log import logging
 from isar.models.communication.messages import (
     StartMissionMessages,
     StopMessage,

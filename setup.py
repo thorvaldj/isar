@@ -26,7 +26,6 @@ setup(
         "uvicorn",
         "PyJWT",
         "PyYAML",
-        "Werkzeug < 2.0.0",
         "alitra",
         "azure-identity",
         "azure-keyvault-secrets",

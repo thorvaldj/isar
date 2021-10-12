@@ -1,3 +1,4 @@
+import logging
 from typing import Any, Optional
 
 import requests
@@ -11,7 +12,6 @@ from requests.exceptions import (
 from requests.models import Response
 
 from isar.config import config
-from isar.config.log import logging
 
 
 class RequestHandler:
